@@ -7,3 +7,4 @@ Friday 2/26/21
 12:13 PM Restarted XTools and Expo, Native runs better, Continuing with Walkthrough.
 1:27 PM Messing around with adding map to Project
 2:45 researching placing pins
+3:05 Set Default map region
