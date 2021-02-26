@@ -9,12 +9,15 @@ List the absolute minimum features the project requires to meet this purpose or 
 Seamless UI, easy to navigate and add spots to the list.
 Utilizing Google Maps Api to track spots added by users.
 Deployed so that it can be demoed
+
 What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
 
 React (Native) ** Need to continue research to figure out if . 
 Bootstrap to help with styling. 
-Google Maps for location tracking and pinpointing of spots.
+-Google Maps for location tracking and pinpointing of spots.
+
 AWS or Heroku for deployment.
+
 If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
 
 User Authentication and Login
