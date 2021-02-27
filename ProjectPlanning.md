@@ -11,3 +11,5 @@ Friday 2/26/21
 3:33 Building out Component Diagram for Spot-Check
 3:45 Adding/Adjusting Proposal.
 4:05 Component Diagram for React Project Spot-Check
+4:30 Work on wireframe layout of Project
+4:45 Add Components to file/ necessary redux directories
