@@ -10,3 +10,4 @@ Friday 2/26/21
 3:05 Set Default map region
 3:33 Building out Component Diagram for Spot-Check
 3:45 Adding/Adjusting Proposal.
+4:05 Component Diagram for React Project Spot-Check
