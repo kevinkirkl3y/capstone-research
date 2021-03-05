@@ -18,3 +18,4 @@ Friday 3/5/21
 
 8:10 AM add Readme to Base directory
 9:24 Gather information about placing pins with google maps api
+10:01 AM Add map component to file.
