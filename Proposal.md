@@ -31,8 +31,9 @@ If you finish developing the minimum viable product (MVP) with time to spare, wh
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
 
-- Firebase
+- Firebase For data storage
 - Authenticaton using firebase
+- Heroku, Firebase or AWS for deployment
 
 ## Is there anything else you'd like your instructor to know?
 
