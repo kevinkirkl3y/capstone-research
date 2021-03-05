@@ -9,6 +9,12 @@ const SpotMap = () => {
   const defaultCenter= {
     lat: 45.5051, lng: -122.6750 
   }
+  const spots = [
+    {
+      
+    }
+  ]
+
   return(
     <LoadScript
     googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
