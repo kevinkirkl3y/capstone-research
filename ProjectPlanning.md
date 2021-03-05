@@ -20,4 +20,6 @@ Friday 3/5/21
 9:24 Gather information about placing pins with google maps api
 10:01 AM Add map component to file.
 10:52 AM Map rendered properly.
+12:00 PM Creating reducers and tests to handle state with redux.
+2:15 PM Researching adding custom pin on click 
 

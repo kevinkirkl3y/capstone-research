@@ -1,6 +1,6 @@
 # Spot Check
 
-### "Capstone Project"
+### "Capstone Project Epicodus March 2021"
 
 #### by Kevin Kirkley
 
