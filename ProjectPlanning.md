@@ -22,4 +22,6 @@ Friday 3/5/21
 10:52 AM Map rendered properly.
 12:00 PM Creating reducers and tests to handle state with redux.
 2:15 PM Researching adding custom pin on click 
+2:40 PM Troubleshooting Issues with Firebase initialization
+
 
