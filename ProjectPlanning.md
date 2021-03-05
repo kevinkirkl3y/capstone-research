@@ -13,3 +13,8 @@ Friday 2/26/21
 4:05 Component Diagram for React Project Spot-Check
 4:30 Work on wireframe layout of Project
 4:45 Add Components to file/ necessary redux directories
+
+Friday 3/5/21
+
+8:10 AM add Readme to Base directory
+9:24 Gather information about placing pins with google maps api
