@@ -2,12 +2,13 @@ import React from 'react'
 import SpotMap from './SpotMap';
 import { connect } from 'react-redux';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
-import firebase from 'firebase';
+import firebase from './../firebase';
 
 
 class SpotControl extends React.Component {
-
   render() {
+  
+
     
     return (
       <>

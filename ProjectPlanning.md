@@ -23,5 +23,6 @@ Friday 3/5/21
 12:00 PM Creating reducers and tests to handle state with redux.
 2:15 PM Researching adding custom pin on click 
 2:40 PM Troubleshooting Issues with Firebase initialization
+3:12 PM Resolved Firebase initialization
 
 
