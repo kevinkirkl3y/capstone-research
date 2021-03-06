@@ -25,6 +25,7 @@ Friday 3/5/21
 2:40 PM Troubleshooting Issues with Firebase initialization
 3:12 PM Resolved Firebase initialization
 4:00PM https://unsplash.com/photos/w8SREtVJtv8 Photos for design
+4:30PM Began outlining the spot addition form. 
 
 
 
