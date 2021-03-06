@@ -24,5 +24,7 @@ Friday 3/5/21
 2:15 PM Researching adding custom pin on click 
 2:40 PM Troubleshooting Issues with Firebase initialization
 3:12 PM Resolved Firebase initialization
+4:00PM https://unsplash.com/photos/w8SREtVJtv8 Photos for design
+
 
 
