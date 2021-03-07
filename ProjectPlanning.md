@@ -27,5 +27,9 @@ Friday 3/5/21
 4:00PM https://unsplash.com/photos/w8SREtVJtv8 Photos for design
 4:30PM Began outlining the spot addition form. 
 
+Sunday 3/7/21
+
+10:00 AM Plan Input form data collection/rendering
+
 
 

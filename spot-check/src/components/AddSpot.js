@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useFirestore } from 'react-redux-firebase';
 import firebase from 'firebase/app';
+import SpotMap from './SpotMap';
 
 function AddSpot(props) {
   const firestore = useFirestore();
@@ -15,8 +16,15 @@ function AddSpot(props) {
         features: event.target.features.value,
         bustLevel: event.value.bustLevel.value,
         location: event.value.location.value,
-        creatorId: // add auth capabilities to require sign in to create spots
+        //creatorId: // add auth capabilities to require sign in to create spots
       }
     )
   }
+
+  return(
+    <>
+      
+    </>
+
+  )
 }
