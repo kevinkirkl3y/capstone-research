@@ -49,7 +49,7 @@ class SpotControl extends React.Component {
     }else{
       return(
         <>
-          <SpotMap />
+          <SpotMap spotList ={this.props.spotList}/>
           {console.log(this.props.spotFormVisible)}
           <button onClick={this.handleNewSpot}>Add New Spot</button>
         </>

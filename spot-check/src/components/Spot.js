@@ -5,7 +5,9 @@ function Spot(props) {
   
   return(
     <>
-    <h1>spot</h1>
+    <h1>{props.name}</h1>
+    <p>{props.features}</p>
+    <p>{props.bustLevel}</p>
     </>
   )
   

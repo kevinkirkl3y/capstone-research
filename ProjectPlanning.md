@@ -49,6 +49,8 @@ Monday 3/8/21
 Tuesday 3/9/21
 7:30 AM Working to remedy infinite loop issue.
 8:50 AM Fixed infinite loop, user can now save Spot based on current location or drag marker to Spot location.
+9:00 AM Working on displaying saved data as markers on SpotMap for the user to sort through.
+
 
 
 

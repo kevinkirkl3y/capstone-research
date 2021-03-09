@@ -1,31 +1,63 @@
-import React from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api'
+import React, { useState, useEffect } from 'react';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { useSelector } from 'react-redux'
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
+import Spot from './Spot';
 
-const SpotMap = () => {
+const SpotMap = (props) => {
   const mapStyles = {
     height: '50vh',
     width: "50%"
   }
-  const defaultCenter= {
-    lat: 45.5051, lng: -122.6750 
+  const [currentPosition, setCurrentPosition] = useState({});
+  
+  useFirestoreConnect([
+    {collection: 'spots'}
+  ]);
+
+  const spots = useSelector(state => state.firestore.ordered.spots)
+
+  const success = position => {
+    const currentPosition = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    }
+    setCurrentPosition(currentPosition);
   }
-  // const spots = [
-  //   {
-      
-  //   }
-  // ]
-
-  return(
-    <LoadScript
-    googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
-      <GoogleMap
-      mapContainerStyle={mapStyles}
-      zoom={13}
-      center = {defaultCenter}>
-      </GoogleMap>
-    </ LoadScript>
-
-  )
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success);
+  })
+  if(isLoaded(spots)) {
+    return(
+      <>
+        {console.log(spots)}
+        <LoadScript
+        googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
+          <GoogleMap
+          mapContainerStyle={mapStyles}
+          zoom={13}
+          center = {currentPosition}>
+          </GoogleMap>
+        </ LoadScript>
+        {spots.map((spot) => {
+          {console.log(spot.name)}
+          return <Spot
+          name={spot.name}
+          features={spot.features}
+          bustLevel={spot.bustLevel}
+          id={spot.id}
+          key={spot.id}/>
+        })}
+      </>
+  
+    )
+  } else {
+    return (
+      <>
+      <h3>Loading</h3>
+      </>
+    )
+  }
   
 }
 export default SpotMap;
