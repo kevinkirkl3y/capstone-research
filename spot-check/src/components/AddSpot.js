@@ -75,12 +75,11 @@ function AddSpot(props) {
       <form onSubmit={addSpotToFirestore}>
         <label htmlFor='name'>Name:</label><br/>
         <input type='text' name='name' /><br/>
-        <label htmlFor='features'>Features</label><br/>
-        <input type='text' name='features' /><br/>
+        <label htmlFor='features'>Features:</label><br/>
+        <input type='textarea' name='features' /><br/>
         <label htmlFor='bustLevel'>Bust Level:</label><br/>
         <input type='range' min="1" max="5" name='bustLevel'/><br/>
         
-        <label htmlFor='location'>Location</label><br/>
         
         
         <button type='submit'>Submit</button>

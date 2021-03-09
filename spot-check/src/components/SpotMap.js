@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useSelector } from 'react-redux'
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import Spot from './Spot';
@@ -37,6 +37,15 @@ const SpotMap = (props) => {
           mapContainerStyle={mapStyles}
           zoom={13}
           center = {currentPosition}>
+            {
+              spots.map(spot => {
+                return (
+                  <Marker 
+                  key={spot.name}
+                  position={spot.location}/>
+                )
+              })
+            }
           </GoogleMap>
         </ LoadScript>
         {spots.map((spot) => {
