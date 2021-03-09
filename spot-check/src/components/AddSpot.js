@@ -1,73 +1,102 @@
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFirestore } from 'react-redux-firebase';
-import firebase from 'firebase/app';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+//import firebase from 'firebase/app';
+import { useDispatch } from 'react-redux';
+import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
+import * as c from './../actions/ActionTypes';
 
 
 function AddSpot(props) {
+  const dispatch = useDispatch();
   const firestore = useFirestore();
-  let locationIsEntered = false;
+  const [currentPosition, setCurrentPosition] = useState({});
+  
 
   const mapStyles = {
     height: '50vh',
     width: "50%"
   }
-  const defaultCenter= {
-    lat: 45.5051, lng: -122.6750 
+  const success = position => {
+    const currentPosition = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    }
+    setCurrentPosition(currentPosition);
   }
-
-  function addSpotToFirestore(event) {
+  const onMarkerDragEnd = (e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
+    setCurrentPosition({ lat, lng })
+    dispatch({type: c.ADD_COORDINATES, location: currentPosition})
+    
+  }
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success);
+  })
+  
+  
+   function addSpotToFirestore(event) {
     event.preventDefault();
-    //props.onNewSpotAddition;
+    props.onNewSpotCreation();
 
     return firestore.collection('spots').add(
       {
         name: event.target.name.value,
         features: event.target.features.value,
-        bustLevel: event.value.bustLevel.value,
-        location: event.value.location.value,
+        bustLevel: event.target.bustLevel.value,
+        location: currentPosition
         //creatorId: // add auth capabilities to require sign in to create spots
       }
     )
   }
-    
-    
-  
-  if (locationIsEntered === false) {
-
-    return (
-      <>
+  return (
+    <>
+      
       <LoadScript
       googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
         <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={13}
-        center = {defaultCenter}>
+        center = {currentPosition}>
+        {
+          currentPosition.lat ?
+            <Marker
+              position={currentPosition}
+              onDragEnd={(e) => onMarkerDragEnd(e)}
+              draggable={true} /> :
+            null
+            
+        }
+
+        {console.log(currentPosition)}
         </GoogleMap>
       </ LoadScript>
-      <button onClick={locationIsEntered = true}>Set Location </button>
-      {console.log(locationIsEntered)}
-      </>
-    )
-  }
-  if(locationIsEntered === true) {
-    return(
-      <>
-        {console.log(locationIsEntered)}
-        <form onSubmit={addSpotToFirestore}>
-          <label htmlFor='name'>Name:</label>
-          <input type='text' name='name' />
-          <label htmlFor='features'>Features</label>
-          <input type='text' name='features' />
-          <label htmlFor='bustLevel'>Bust Level:</label>
-          <input type='range' min='1' max='10' step='1' name='bustLevel' />
-          
-          <button type='submit'>Submit</button>
-        </form>
-      </>
-  
-    )
-  }
+      <form onSubmit={addSpotToFirestore}>
+        <label htmlFor='name'>Name:</label><br/>
+        <input type='text' name='name' /><br/>
+        <label htmlFor='features'>Features</label><br/>
+        <input type='text' name='features' /><br/>
+        <label htmlFor='bustLevel'>Bust Level:</label><br/>
+        <input type='range' min="1" max="5" name='bustLevel'/><br/>
+        
+        <label htmlFor='location'>Location</label><br/>
+        
+        
+        <button type='submit'>Submit</button>
+      </form>
+
+    </>
+  )
+}
+AddSpot.propTypes = {
+  addSpotToFirestore: PropTypes.func
 
 }
 export default AddSpot;
+
+{/* <input type='radio' value="1" name='bustLevel'>1</input>
+        <input type='radio' value="2" name='bustLevel'>2</input>
+        <input type='radio' value="3" name='bustLevel'>3</input>
+        <input type='radio' value="4" name='bustLevel'>4</input>
+        <input type='radio' value="5" name='bustLevel'>5</input> */}

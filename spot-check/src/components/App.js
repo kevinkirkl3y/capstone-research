@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import SpotControl from './SpotController';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+//import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
 function App() {

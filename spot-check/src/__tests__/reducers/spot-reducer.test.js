@@ -4,8 +4,8 @@ import * as c from './../../actions/ActionTypes';
 
 describe('spotReducer', () => {
   let action;
-  const defaultState = {
-    spotFormVisible: false,
+  const currentState = {
+    
     spotList: [],
     coordinates: {},
     isMarkerShown: false,

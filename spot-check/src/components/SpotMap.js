@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import { GoogleMap, LoadScript } from '@react-google-maps/api'
 
 const SpotMap = () => {
   const mapStyles = {
@@ -9,11 +9,11 @@ const SpotMap = () => {
   const defaultCenter= {
     lat: 45.5051, lng: -122.6750 
   }
-  const spots = [
-    {
+  // const spots = [
+  //   {
       
-    }
-  ]
+  //   }
+  // ]
 
   return(
     <LoadScript

@@ -1,24 +1,70 @@
 import React from 'react'
 import SpotMap from './SpotMap';
 import { connect } from 'react-redux';
-import { withFirestore, isLoaded } from 'react-redux-firebase';
+import { withFirestore} from 'react-redux-firebase';
 import firebase from './../firebase';
 import AddSpot from './AddSpot';
+import * as a from './../actions/index';
 
 
 class SpotControl extends React.Component {
-  render() {
-  
-
-    
-    return (
-      <>
-        {/* <SpotMap/> */}
-        <AddSpot />
-        
-      </>
-    )
+  // constructor(props){
+  //   super(props);
+  // }
+  handleClick = () => {
+    const {dispatch} = this.props;
+    if(this.props.selectedSpot != null){
+      if(this.props.spotFormVisible){
+        const action = a.toggleForm();
+        dispatch(action); 
+      }
+      const action2 = a.clearSelect();
+      dispatch(action2)
+      if(this.props.editing){
+        const action3 = a.toggleEdit();
+        dispatch(action3);
+      }
+    }else{
+      const action = a.toggleForm();
+      dispatch(action);
+    }
   }
+  handleNewSpot = () => {
+    const{ dispatch } = this.props;
+    const action = a.toggleForm();
+    dispatch(action);
+  }
+  handleLocationAdded = () => {
+    const { dispatch } = this.props;
+    const action = a.locationAdded();
+    dispatch(action);
+  }
+
+
+  render() {
+    if(this.props.spotFormVisible){
+      return (
+        <AddSpot onAddLocation={this.handleLocationAdded} onNewSpotCreation={this.handleNewSpot}/>
+      )
+    }else{
+      return(
+        <>
+          <SpotMap />
+          {console.log(this.props.spotFormVisible)}
+          <button onClick={this.handleNewSpot}>Add New Spot</button>
+        </>
+      )
+    }
+  }
+    
+  //   return (
+  //     <>
+  //       <SpotMap/>
+  //       <AddSpot />
+        
+  //     </>
+  //   )
+  // }
 }
 
 const mapStateToProps = state => {

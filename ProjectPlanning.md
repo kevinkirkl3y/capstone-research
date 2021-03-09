@@ -30,6 +30,31 @@ Friday 3/5/21
 Sunday 3/7/21
 
 10:00 AM Plan Input form data collection/rendering
+7:00 - 8:00PM Start attempting to handle basic functionality of project. Wrote tests/reducer for form toggle.
+
+Monday 3/8/21
+9:00 AM Researching how to autofill lat long data to form
+10:00 AM Expanding on Reducers/Tests
+11:00 AM Expanding Reducers/Tests
+11:30 AM Adding Handlers to SpotControl
+1:10 PM Creating Combined reducer to handle state changes.
+2:00 PM Diverted to try registering some spot inputs and making sure the form works. 
+2:50 PM Tested just using string data inputs and collection is created, for some reason number inputs from range slider do not work. 
+3:45 PM Solved problem with bustLevel value input. Firestore is now holding data for Spot: Name, Features and BustLevel Now will strive to get location data included. 
+4:15 PM Looking into autocomplete for pulling lat long data into the form to save in the firestore.
+4:50 PM Signed out of epicenter. Break...
+
+9:00 PM Working to add Marker to map in AddSpot.js then to pull location data from that marker. (Running into infinite loop issue... :( )
+
+Tuesday 3/9/21
+7:30 AM Working to remedy infinite loop issue.
+8:50 AM Fixed infinite loop, user can now save Spot based on current location or drag marker to Spot location.
+
+
+
+
+
+
 
 
 

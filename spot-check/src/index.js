@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import spotReducer from './reducers/spot-reducer'
+import rootReducer from './reducers/index'
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
+import thunkMiddleware from 'redux-thunk';
+import middlewareLogger from './middleware/middleware-logger';
 
-const store = createStore(spotReducer);
+const store = createStore(rootReducer)
+//  applyMiddleware(thunkMiddleware, middlewareLogger));
 const rrfProps =  { 
   firebase,
   config: {

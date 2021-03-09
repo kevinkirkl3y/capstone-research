@@ -1,20 +1,21 @@
 import * as c from './../actions/ActionTypes';
 
-let initialState = {
-  spotFormVisible: false,
-  spotList: [],
-  coordinates: {},
-  isMarkerShown: false,
-  markerPosition: null
-}
 
-export default (state = initialState, action) => {
+
+export default (state = {}, action) => {
+  const { location, id } = action
   switch (action.type) {
-    case c.TOGGLE_FORM:
-      return Object.assign({}, state), {
-      spotFormVisible: true
-      }
+    
+    case c.DELETE_SPOT:
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
+    case c.ADD_COORDINATES:
+      return Object.assign({}, state, {
+        location: action.coordinates,
+        location
+      });  
     default:
-      return state;
+      return state; 
   }
 }

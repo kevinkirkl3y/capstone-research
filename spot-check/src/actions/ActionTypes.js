@@ -1,2 +1,7 @@
-export const ADD_SPOT = 'ADD_SPOT'
-export const TOGGLE_FORM = 'TOGGLE_FORM'
+export const SELECT_SPOT = 'SELECT_SPOT';
+export const CLEAR_SELECT = 'CLEAR_SELECT';
+export const DELETE_SPOT = 'DELETE_SPOT';
+export const TOGGLE_FORM = 'TOGGLE_FORM';
+export const TOGGLE_EDIT = 'TOGGLE_EDIT';
+export const LOCATION_ADDED = 'LOCATION_ADDED'
+export const ADD_COORDINATES = 'ADD_COORDINATES'
