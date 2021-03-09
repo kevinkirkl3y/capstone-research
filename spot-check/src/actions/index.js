@@ -3,7 +3,10 @@ import * as c from './ActionTypes';
 export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });
-
+export const deleteSpot = (id) => ({
+  type: c.DELETE_SPOT,
+  id
+}) 
 export const selectSpot = (spot) => ({
   type: c.SELECT_SPOT,
   spot

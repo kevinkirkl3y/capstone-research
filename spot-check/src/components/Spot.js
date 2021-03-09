@@ -15,7 +15,7 @@ function Spot(props) {
 Spot.propTypes = {
   name: PropTypes.string,
   features: PropTypes.string,
-  bustLevel: PropTypes.number,
+  bustLevel: PropTypes.string,
   location: PropTypes.object,
 
 }

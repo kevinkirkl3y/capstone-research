@@ -19,8 +19,7 @@ I am using Redux in this project to help develop a better understanding of how t
 - Bootstrap to help with styling
 - Styled Components
 - Google Maps for location tracking and pinpointing of spots
-- _OR_
-- Core Location
+
 
 AWS or Heroku for deployment.
 

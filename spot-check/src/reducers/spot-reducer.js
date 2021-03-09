@@ -1,4 +1,4 @@
-import * as c from './../actions/ActionTypes';
+import * as a from './../actions/index';
 
 
 
@@ -6,13 +6,13 @@ export default (state = {}, action) => {
   const { location, id } = action
   switch (action.type) {
     
-    case c.DELETE_SPOT:
+    case a.deleteSpot:
       const newState = { ...state };
       delete newState[id];
       return newState;
-    case c.ADD_COORDINATES:
+    case a.addCoordinates():
       return Object.assign({}, state, {
-        location: action.coordinates,
+        coordinates: action.coordinates,
         location
       });  
     default:

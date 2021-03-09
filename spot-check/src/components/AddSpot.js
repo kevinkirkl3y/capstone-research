@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, componentDidMount } from 'react';
 import PropTypes from 'prop-types';
 import { useFirestore } from 'react-redux-firebase';
 //import firebase from 'firebase/app';
@@ -12,10 +12,22 @@ function AddSpot(props) {
   const firestore = useFirestore();
   const [currentPosition, setCurrentPosition] = useState({});
   
-
+  //const defaultPosition = setCurrentPosition(currentPosition);
+  
   const mapStyles = {
     height: '50vh',
     width: "50%"
+  }
+  function defaultCenter() {
+    
+    if (Object.keys(currentPosition).length === 0) {
+      setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
+      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+      return currentPosition;
+    } else {
+      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+      return currentPosition;
+    }
   }
   const success = position => {
     const currentPosition = {
@@ -24,22 +36,22 @@ function AddSpot(props) {
     }
     setCurrentPosition(currentPosition);
   }
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success);
+  })
   const onMarkerDragEnd = (e) => {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
     setCurrentPosition({ lat, lng })
     dispatch({type: c.ADD_COORDINATES, location: currentPosition})
-    
   }
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
-  })
   
   
-   function addSpotToFirestore(event) {
+  function addSpotToFirestore(event) {
     event.preventDefault();
     props.onNewSpotCreation();
-
+    
+  
     return firestore.collection('spots').add(
       {
         name: event.target.name.value,
@@ -50,26 +62,27 @@ function AddSpot(props) {
       }
     )
   }
-  return (
+  
+  
+  
+
+ 
+  return(
     <>
-      
       <LoadScript
       googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
         <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={13}
-        center = {currentPosition}>
-        {
-          currentPosition.lat ?
-            <Marker
-              position={currentPosition}
-              onDragEnd={(e) => onMarkerDragEnd(e)}
-              draggable={true} /> :
-            null
-            
+        center = {defaultCenter()}>
+        {   
+          currentPosition.lat ? 
+          <Marker
+            position={currentPosition}
+            onDragEnd={(e) => onMarkerDragEnd(e)}
+            draggable={true} /> :
+            null    
         }
-
-        {console.log(currentPosition)}
         </GoogleMap>
       </ LoadScript>
       <form onSubmit={addSpotToFirestore}>
@@ -84,18 +97,13 @@ function AddSpot(props) {
         
         <button type='submit'>Submit</button>
       </form>
-
     </>
   )
+  
+
 }
 AddSpot.propTypes = {
   addSpotToFirestore: PropTypes.func
 
 }
 export default AddSpot;
-
-{/* <input type='radio' value="1" name='bustLevel'>1</input>
-        <input type='radio' value="2" name='bustLevel'>2</input>
-        <input type='radio' value="3" name='bustLevel'>3</input>
-        <input type='radio' value="4" name='bustLevel'>4</input>
-        <input type='radio' value="5" name='bustLevel'>5</input> */}

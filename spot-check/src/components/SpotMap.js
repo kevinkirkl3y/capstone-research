@@ -1,32 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { useSelector } from 'react-redux'
+import { GoogleMap,  LoadScript, Marker } from '@react-google-maps/api';
+import { useSelector} from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import Spot from './Spot';
+
+
 
 const SpotMap = (props) => {
   const mapStyles = {
     height: '50vh',
     width: "50%"
   }
+  
   const [currentPosition, setCurrentPosition] = useState({});
   
   useFirestoreConnect([
     {collection: 'spots'}
   ]);
-
   const spots = useSelector(state => state.firestore.ordered.spots)
 
   const success = position => {
     const currentPosition = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
+      lat: parseFloat(position.coords.latitude),
+      lng: parseFloat(position.coords.longitude)
     }
     setCurrentPosition(currentPosition);
   }
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
   })
+  const [ setSelected ] = useState({});
+  
+  
+  const onSelect = spot => {
+    setSelected(spot);
+  }
   if(isLoaded(spots)) {
     return(
       <>
@@ -41,15 +49,16 @@ const SpotMap = (props) => {
               spots.map(spot => {
                 return (
                   <Marker 
-                  key={spot.name}
-                  position={spot.location}/>
+                  key={spot.id}
+                  position={spot.location}
+                  onClick={() => onSelect(spot)}
+                  /> 
                 )
               })
             }
           </GoogleMap>
         </ LoadScript>
         {spots.map((spot) => {
-          {console.log(spot.name)}
           return <Spot
           name={spot.name}
           features={spot.features}

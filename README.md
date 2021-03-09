@@ -55,7 +55,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Known Bugs / Issues
 
-- None currently to note
+- 3/9/21 When adding a spot to the list, the location runs in a loop that will continue until the marker is dragged. 
 
 ## Support / Contact Details
 

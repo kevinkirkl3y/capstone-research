@@ -50,6 +50,16 @@ Tuesday 3/9/21
 7:30 AM Working to remedy infinite loop issue.
 8:50 AM Fixed infinite loop, user can now save Spot based on current location or drag marker to Spot location.
 9:00 AM Working on displaying saved data as markers on SpotMap for the user to sort through.
+10:30 AM Spot Markers are displayed, now I want to add information to the pins when clicked. 
+11:00 AM Dealing with looping bug regarding current location. 
+12:00 PM Lunch...
+1:00 PM Still dealing with currentLocation loop bug. 
+3:00 PM Changing gears, bug is still there, though project 'functions' despite...
+3:15 PM Attempting to Style the user interface.
+
+
+
+
 
 
 

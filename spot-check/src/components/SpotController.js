@@ -29,6 +29,7 @@ class SpotControl extends React.Component {
       dispatch(action);
     }
   }
+  
   handleNewSpot = () => {
     const{ dispatch } = this.props;
     const action = a.toggleForm();
@@ -49,9 +50,10 @@ class SpotControl extends React.Component {
     }else{
       return(
         <>
+          <button onClick={this.handleNewSpot}>Add New Spot</button>
           <SpotMap spotList ={this.props.spotList}/>
           {console.log(this.props.spotFormVisible)}
-          <button onClick={this.handleNewSpot}>Add New Spot</button>
+          
         </>
       )
     }
@@ -72,8 +74,7 @@ const mapStateToProps = state => {
     spotFormVisible: state.spotFormVisible,
     spotList: state.spotList,
     coordinates: state.coordinates,
-    isMarkerShown: state.isMarkerShown,
-    markerPosition: state.markerPosition
+    
   }
 }
 SpotControl = connect(mapStateToProps)(SpotControl);
