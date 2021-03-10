@@ -5,12 +5,15 @@ import { withFirestore} from 'react-redux-firebase';
 import firebase from './../firebase';
 import AddSpot from './AddSpot';
 import * as a from './../actions/index';
+import styled from 'styled-components';
 
 
 class SpotControl extends React.Component {
   // constructor(props){
   //   super(props);
   // }
+
+  // HANDLERS FOR SPOT ACTIONS
   handleClick = () => {
     const {dispatch} = this.props;
     if(this.props.selectedSpot != null){
@@ -35,17 +38,26 @@ class SpotControl extends React.Component {
     const action = a.toggleForm();
     dispatch(action);
   }
-  handleLocationAdded = () => {
-    const { dispatch } = this.props;
-    const action = a.locationAdded();
+  handleReturnHome = () => {
+    const {dispatch} =this.props;
+    const action = a.toggleForm();
     dispatch(action);
   }
+  
+  //STYLED COMPONENTS TO HANDLE STYLING IN CONTROL 
+  BodyDiv = styled.div`
+  position: center;
+  `;
 
 
   render() {
     if(this.props.spotFormVisible){
       return (
-        <AddSpot onAddLocation={this.handleLocationAdded} onNewSpotCreation={this.handleNewSpot}/>
+        <>
+          <this.BodyDiv>
+            <AddSpot onAddLocation={this.handleLocationAdded} returnHome={this.handleReturnHome} onNewSpotCreation={this.handleNewSpot}/>
+          </this.BodyDiv>
+        </>
       )
     }else{
       return(
@@ -58,15 +70,6 @@ class SpotControl extends React.Component {
       )
     }
   }
-    
-  //   return (
-  //     <>
-  //       <SpotMap/>
-  //       <AddSpot />
-        
-  //     </>
-  //   )
-  // }
 }
 
 const mapStateToProps = state => {

@@ -5,13 +5,20 @@ import { useFirestore } from 'react-redux-firebase';
 import { useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import * as c from './../actions/ActionTypes';
+import {toggleForm} from './../actions/index';
+import { Container } from 'react-bootstrap';
 
 
 function AddSpot(props) {
+  let action;
   const dispatch = useDispatch();
   const firestore = useFirestore();
   const [currentPosition, setCurrentPosition] = useState({});
   
+
+  const returnHome= () => {
+    props.returnHome();
+  }
   //const defaultPosition = setCurrentPosition(currentPosition);
   
   const mapStyles = {
@@ -85,6 +92,7 @@ function AddSpot(props) {
         }
         </GoogleMap>
       </ LoadScript>
+      
       <form onSubmit={addSpotToFirestore}>
         <label htmlFor='name'>Name:</label><br/>
         <input type='text' name='name' /><br/>
@@ -92,11 +100,9 @@ function AddSpot(props) {
         <input type='textarea' name='features' /><br/>
         <label htmlFor='bustLevel'>Bust Level:</label><br/>
         <input type='range' min="1" max="5" name='bustLevel'/><br/>
-        
-        
-        
         <button type='submit'>Submit</button>
       </form>
+      <button onClick={returnHome}>Back to spot map</button>
     </>
   )
   

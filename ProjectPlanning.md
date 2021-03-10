@@ -44,7 +44,7 @@ Monday 3/8/21
 4:15 PM Looking into autocomplete for pulling lat long data into the form to save in the firestore.
 4:50 PM Signed out of epicenter. Break...
 
-9:00 PM Working to add Marker to map in AddSpot.js then to pull location data from that marker. (Running into infinite loop issue... :( )
+8-9:00 PM Working to add Marker to map in AddSpot.js then to pull location data from that marker. (Running into infinite loop issue... :( )
 
 Tuesday 3/9/21
 7:30 AM Working to remedy infinite loop issue.
@@ -56,6 +56,19 @@ Tuesday 3/9/21
 1:00 PM Still dealing with currentLocation loop bug. 
 3:00 PM Changing gears, bug is still there, though project 'functions' despite...
 3:15 PM Attempting to Style the user interface.
+3:45 PM Taking a break to work on internship applications. 
+
+Wednesday 3/10/21
+
+8:00 AM Attempting to style project Researching styling approaches.
+9:00 AM Watching tutorial https://www.youtube.com/watch?v=NMiEREulVLc
+10:00 AM Styling /Finishing Internship Applications
+11:00 AM Return to styling/ Adding button to addspot to allow user to return to home without adding spot. ** Breaks map when 
+
+
+
+
+
 
 
 
