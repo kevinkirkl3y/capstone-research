@@ -14,7 +14,8 @@ function App() {
           <SignIn />
         </Route> */}
         <Route path='/'>
-          <SpotControl />
+          
+          <SpotControl/>
         </Route>
       </Switch>
     </Router>

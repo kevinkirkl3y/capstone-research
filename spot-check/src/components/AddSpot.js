@@ -1,16 +1,14 @@
-import React, { useState, useEffect, componentDidMount } from 'react';
+import React, { useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { useFirestore } from 'react-redux-firebase';
-//import firebase from 'firebase/app';
 import { useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import * as c from './../actions/ActionTypes';
-import {toggleForm} from './../actions/index';
-import { Container } from 'react-bootstrap';
+
 
 
 function AddSpot(props) {
-  let action;
+  
   const dispatch = useDispatch();
   const firestore = useFirestore();
   const [currentPosition, setCurrentPosition] = useState({});
@@ -25,17 +23,17 @@ function AddSpot(props) {
     height: '50vh',
     width: "50%"
   }
-  function defaultCenter() {
+  // function defaultCenter() {
     
-    if (Object.keys(currentPosition).length === 0) {
-      setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
-      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-      return currentPosition;
-    } else {
-      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-      return currentPosition;
-    }
-  }
+  //   if (currentPosition.length === 0) {
+  //     setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
+  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+  //     return currentPosition;
+  //   } else {
+  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+  //     return currentPosition;
+  //   }
+  // }
   const success = position => {
     const currentPosition = {
       lat: position.coords.latitude,
@@ -51,6 +49,7 @@ function AddSpot(props) {
     const lng = e.latLng.lng();
     setCurrentPosition({ lat, lng })
     dispatch({type: c.ADD_COORDINATES, location: currentPosition})
+    
   }
   
   
@@ -81,7 +80,7 @@ function AddSpot(props) {
         <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={13}
-        center = {defaultCenter()}>
+        center = {{lat: parseFloat(currentPosition.lat), lng: parseFloat(currentPosition.lng)}}>
         {   
           currentPosition.lat ? 
           <Marker

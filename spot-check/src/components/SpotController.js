@@ -2,6 +2,7 @@ import React from 'react'
 import SpotMap from './SpotMap';
 import { connect } from 'react-redux';
 import { withFirestore} from 'react-redux-firebase';
+// eslint-disable-next-line
 import firebase from './../firebase';
 import AddSpot from './AddSpot';
 import * as a from './../actions/index';
@@ -12,6 +13,7 @@ class SpotControl extends React.Component {
   // constructor(props){
   //   super(props);
   // }
+  
 
   // HANDLERS FOR SPOT ACTIONS
   handleClick = () => {
@@ -38,19 +40,23 @@ class SpotControl extends React.Component {
     const action = a.toggleForm();
     dispatch(action);
   }
+  handleSelect = () => {
+    
+  }
   handleReturnHome = () => {
     const {dispatch} =this.props;
     const action = a.toggleForm();
     dispatch(action);
   }
   
+  
   //STYLED COMPONENTS TO HANDLE STYLING IN CONTROL 
   BodyDiv = styled.div`
-  position: center;
   `;
 
 
   render() {
+    
     if(this.props.spotFormVisible){
       return (
         <>
@@ -62,9 +68,11 @@ class SpotControl extends React.Component {
     }else{
       return(
         <>
-          <button onClick={this.handleNewSpot}>Add New Spot</button>
-          <SpotMap spotList ={this.props.spotList}/>
-          {console.log(this.props.spotFormVisible)}
+          <this.BodyDiv>
+            <button onClick={this.handleNewSpot}>Add New Spot</button>
+            <SpotMap />
+            {console.log(this.props.spotFormVisible)}
+          </this.BodyDiv>
           
         </>
       )

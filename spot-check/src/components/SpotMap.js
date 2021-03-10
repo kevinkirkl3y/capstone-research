@@ -2,18 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap,  LoadScript, Marker } from '@react-google-maps/api';
 import { useSelector} from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
-import Spot from './Spot';
 import styled from 'styled-components';
+import Card from 'react-bootstrap/Card';
 
 const MapBox = styled.div`
-width: 50%;
+width: flex;
 border: 10px solid #717082;
-align: center;
+marginLeft: 50%;
+marginRight: 50%;
+display: flex;
+justifyContent: center;
+alignItems: center;
 `;
 
 
 
-const SpotMap = (props) => {
+const SpotMap = () => {
   const mapStyles = {
     height: '50vh',
     width: "100%"
@@ -52,7 +56,7 @@ const SpotMap = (props) => {
             <GoogleMap
             mapContainerStyle={mapStyles}
             zoom={13}
-            center = {currentPosition}>
+            center = {{lat: parseFloat(currentPosition.lat), lng: parseFloat(currentPosition.lng)}}>
               {
                 spots.map(spot => {
                   return (
@@ -67,14 +71,19 @@ const SpotMap = (props) => {
             </GoogleMap>
           </ LoadScript>
         </MapBox>
+        
           {spots.map((spot) => {
-            return <Spot
-            name={spot.name}
-            features={spot.features}
-            bustLevel={spot.bustLevel}
-            id={spot.id}
-            key={spot.id}/>
+            return <Card key={spot.id}>
+                  <Card.Body>
+                    <Card.Title>{spot.name}</Card.Title>
+                    <Card.Text>
+                      Features: {spot.features}<br/>
+                      Bust Level: {spot.bustLevel}<br/>
+                    </Card.Text>
+                  </Card.Body>
+              </Card>
           })}
+        
       </>
   
     )

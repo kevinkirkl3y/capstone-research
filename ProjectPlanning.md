@@ -63,7 +63,14 @@ Wednesday 3/10/21
 8:00 AM Attempting to style project Researching styling approaches.
 9:00 AM Watching tutorial https://www.youtube.com/watch?v=NMiEREulVLc
 10:00 AM Styling /Finishing Internship Applications
-11:00 AM Return to styling/ Adding button to addspot to allow user to return to home without adding spot. ** Breaks map when 
+11:00 AM Return to styling/ Adding button to addspot to allow user to return to home without adding spot. 
+12:00 PM Lunch
+1:00 PM Successfully added bootstrap to project, Attempting to fix latlng error, to no avail. 
+2:00 PM Developing cards for displaying spot information. 
+2:45 PM - 3:15 PM Break
+3:15 PM Trying to solve "InvalidValueError: setCenter: not a LatLng or LatLngLiteral with finite coordinates: in property lat: NaN is not an accepted value " error.
+
+
 
 
 

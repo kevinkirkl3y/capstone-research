@@ -20,4 +20,4 @@ Spot.propTypes = {
 
 }
 
-export default Spot
+export default Spot;

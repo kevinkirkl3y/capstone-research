@@ -9,12 +9,13 @@ The goal of SpotCheck is to crowd-source information about skate spots in any gi
 I am using Redux in this project to help develop a better understanding of how to create state slices regarding more complicated components. 
 ## List the absolute minimum features the project requires to meet this purpose or goal:
 
-- Seamless UI,
+- Database storage of spot information
 - Easy to navigate and add spots to the list.
 - Utilizing Google Maps Api to track spots added by users.
 
 ## What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
 
+- Firebase For data storage
 - React
 - Bootstrap to help with styling
 - Styled Components
@@ -26,7 +27,7 @@ AWS or Heroku for deployment.
 If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
 
 - User Authentication and Login
-- Database storage of spot information
+- Seamless UI
 - Deployed so that it can be demoed
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
