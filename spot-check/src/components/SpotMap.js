@@ -52,7 +52,7 @@ const SpotMap = () => {
     return(
       <>
         <MapBox>
-          {console.log(spots)}
+          {console.log(currentPosition.lat)}
           <LoadScript
           googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
             <GoogleMap
@@ -60,15 +60,14 @@ const SpotMap = () => {
             zoom={13}
             center = {{lat: parseFloat(currentPosition.lat), lng: parseFloat(currentPosition.lng)}}>
               {
-                spots.map(spot => {
+                
+                  spots.map(spot => {
                   return (
                     <Marker 
                     key={spot.id}
-                    position={spot.location}
-                    onClick={() => onSelect(spot)}
-                    /> 
+                    position={spot.location}/> 
                   )
-                })
+                  })
               }
             </GoogleMap>
           </ LoadScript>

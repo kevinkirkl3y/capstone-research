@@ -70,3 +70,9 @@ Wednesday 3/10/21
 2:45 PM - 3:15 PM Break
 3:15 PM Trying to solve "InvalidValueError: setCenter: not a LatLng or LatLngLiteral with finite coordinates: in property lat: NaN is not an accepted value " error.
 4:00 PM Still Trying to solve "InvalidValueError: setCenter: not a LatLng or LatLngLiteral with finite coordinates: in property lat: NaN is not an accepted value " error.
+5:00 PM Debugging "InvalidValueError: setCenter: error.
+5:00 PM - 6:45 PM Break
+6:45 PM Tried using conditionals to require currentLocation to be created before rendering. Not working. 
+8:15 PM Still trying to debug map not loading properly in AddSpot. 
+8:35 PM 
+

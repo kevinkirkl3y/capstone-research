@@ -8,14 +8,24 @@ import * as c from './../actions/ActionTypes';
 
 
 function AddSpot(props) {
-  
   const dispatch = useDispatch();
   const firestore = useFirestore();
   const [currentPosition, setCurrentPosition] = useState({});
   
-
+  function defaultCenter() {
+    
+    if (currentPosition.length === 0) {
+      setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
+      dispatch({type: c.ADD_COORDINATES, location: { lat: 45.5051, lng: -122.6750 }});
+      return { lat: 45.5051, lng: -122.6750 };
+    } else {
+      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+      return currentPosition;
+    }
+  }
   const returnHome= () => {
     props.returnHome();
+    
   }
   //const defaultPosition = setCurrentPosition(currentPosition);
   
@@ -23,17 +33,7 @@ function AddSpot(props) {
     height: '50vh',
     width: "50%"
   }
-  // function defaultCenter() {
-    
-  //   if (currentPosition.length === 0) {
-  //     setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
-  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-  //     return currentPosition;
-  //   } else {
-  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-  //     return currentPosition;
-  //   }
-  // }
+  
   const success = position => {
     const currentPosition = {
       lat: position.coords.latitude,
@@ -51,6 +51,7 @@ function AddSpot(props) {
     dispatch({type: c.ADD_COORDINATES, location: currentPosition})
     
   }
+  
   
   
   function addSpotToFirestore(event) {
@@ -71,39 +72,48 @@ function AddSpot(props) {
   
   
   
+  
+ if(defaultCenter().length === 0){
+   return(
+     <>
+     <h1>Loading...</h1>
+     </>
+   )
+ }else{
 
- 
-  return(
-    <>
-      <LoadScript
-      googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
-        <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={13}
-        center = {{lat: parseFloat(currentPosition.lat), lng: parseFloat(currentPosition.lng)}}>
-        {   
-          currentPosition.lat ? 
-          <Marker
-            position={currentPosition}
-            onDragEnd={(e) => onMarkerDragEnd(e)}
-            draggable={true} /> :
-            null    
-        }
-        </GoogleMap>
-      </ LoadScript>
-      
-      <form onSubmit={addSpotToFirestore}>
-        <label htmlFor='name'>Name:</label><br/>
-        <input type='text' name='name' /><br/>
-        <label htmlFor='features'>Features:</label><br/>
-        <input type='textarea' name='features' /><br/>
-        <label htmlFor='bustLevel'>Bust Level:</label><br/>
-        <input type='range' min="1" max="5" name='bustLevel'/><br/>
-        <button type='submit'>Submit</button>
-      </form>
-      <button onClick={returnHome}>Back to spot map</button>
-    </>
-  )
+   return(
+     <>
+       <LoadScript
+       googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
+         <GoogleMap
+         mapContainerStyle={mapStyles}
+         zoom={13}
+         center = {defaultCenter()}>
+           {console.log(defaultCenter())}
+         {   
+           currentPosition.lat ? 
+           <Marker
+             position={currentPosition}
+             onDragEnd={(e) => onMarkerDragEnd(e)}
+             draggable={true} /> :
+             null    
+         }
+         </GoogleMap>
+       </ LoadScript>
+       
+       <form onSubmit={addSpotToFirestore}>
+         <label htmlFor='name'>Name:</label><br/>
+         <input type='text' name='name' /><br/>
+         <label htmlFor='features'>Features:</label><br/>
+         <input type='textarea' name='features' /><br/>
+         <label htmlFor='bustLevel'>Bust Level:</label><br/>
+         <input type='range' min="1" max="5" name='bustLevel'/><br/>
+         <button type='submit'>Submit</button>
+       </form>
+       <button onClick={returnHome}>Back to spot map</button>
+     </>
+   )
+ }
   
 
 }
