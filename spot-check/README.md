@@ -1,10 +1,44 @@
-# Getting Started with Create React App
+# Spot Check
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### "Capstone Project Epicodus March 2021"
 
-## Available Scripts
+#### by Kevin Kirkley
 
-In the project directory, you can run:
+## Description
+
+The goal of SpotCheck is to crowd-source information about skate spots in any given area. This will allow exact pin location of skate-spots, users then can add information regarding: best time to skate, will you get kicked out, should you bring wax, etc.  The overall goal of this product is to help share info, so if you are new to an area you can check out what street spots are around without needing a tour-guide like the pros.
+
+## User Stories
+
+## Program Structure
+
+### Software Requirements
+
+1. Internet Browser
+2. A code editor such as VSCode in order to view or edit codebase.
+3. Node.js
+
+### Open by downloading:
+
+1. Download the [repository](TODO) onto your computer by clicking the 'clone or download button'.
+2. Open within your text editor and navigate to the `TODO` folder and run `npm install` in your console to install project dependencies.
+3. Run `npm start` in your console to fire up the program and then open in your browser.
+
+### Open with Bash/GitBash:
+
+1. Clone this repository onto your computer:
+
+```
+git clone TODO
+```
+
+2. Navigate into the `TODO` directory and open in VSCode or preferred text editor using `code .` in your terminal.
+3. Open within your text editor and navigate to the `TODO` folder and run `npm install` in your console to install all project dependencies.
+4. Run `npm start` in your console to fire up the program and then open in your browser.
+
+### `npm test`
+
+By running `npm test` the program will use Jest to test state handling performed by the reducers. These tests also check that action type constants are working correctly.
 
 ### `npm start`
 
@@ -14,57 +48,38 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Known Bugs / Issues
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 3/9/21 When adding a spot to the list, the location runs in a loop that will continue until the marker is dragged. 
 
-### `npm run eject`
+## Support / Contact Details
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_Contact Kevin Kirkley at [kevinmkirkley@gmail.com](mailto:kevinmkirkley@gmail.com) with and questions, concerns or additions._
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<details>
+  <summary>Expand Tech/tools</summary>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Bootstrap Components](https://getbootstrap.com/docs/3.3/components/)
+- Javascript
+- React
+- CSS
+- Node.js
+- Google Fonts
+- Redux
+- Jest
+- Babel
 
-## Learn More
+</details>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ©️ License & Copyright
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Copyright (c) 2020 **_Kevin Kirkley_**

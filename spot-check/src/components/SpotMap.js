@@ -28,7 +28,7 @@ const SpotMap = () => {
   useFirestoreConnect([
     {collection: 'spots'}
   ]);
-  const spots = useSelector(state => state.firestore.ordered.spots)
+  
 
   const success = position => {
     const currentPosition = {
@@ -46,6 +46,8 @@ const SpotMap = () => {
   const onSelect = spot => {
     setSelected(spot);
   }
+  const spots = useSelector(state => state.firestore.ordered.spots)
+  
   if(isLoaded(spots)) {
     return(
       <>
@@ -94,6 +96,7 @@ const SpotMap = () => {
       </>
     )
   }
+  
   
 }
 export default SpotMap;
