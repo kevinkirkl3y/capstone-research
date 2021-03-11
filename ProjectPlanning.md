@@ -74,5 +74,12 @@ Wednesday 3/10/21
 5:00 PM - 6:45 PM Break
 6:45 PM Tried using conditionals to require currentLocation to be created before rendering. Not working. 
 8:15 PM Still trying to debug map not loading properly in AddSpot. 
-8:35 PM 
+9:00 PM Calling it for the night.
+
+Thursday 3/11/21
+
+8:00 AM Adding to Capstone Discord Channel. 
+9:00 AM Trying to get screen capture video of SpotCheck Loading Properly.
+10:00 AM Preparing for presentation.  
+
 
