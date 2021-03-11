@@ -3,8 +3,11 @@
 # Name of Project: SpotCheck
 
 ### Project's Purpose or Goal:
+Have you ever been on a trip, had a few hours to kill and wanted to find and skate some of the local spots the city has to offer. Now you have a few choices, you can find your local skate shop and ask some of the folks hanging out if they have any suggestions... You could look up a skate park and ask some of the locals if there are any spots they might be willing to share with you... Or if you want to kill more time than skate, you could always drive around looking, but chances are thats the last thing you would want to do. 
 
-The goal of SpotCheck is to crowd-source information about skate spots in any given area. This will allow exact pin location of skate-spots, users then can add information regarding: best time to skate, will you get kicked out, should you bring wax, etc. As skateboarding is a mobile activity it would be preferred to be a mobile app. The overall goal of this product is to help share info, so if you are new to an area you can check out what street spots are around without needing a tour-guide like the pros.
+Spot Check is the solution to this problem:
+
+The goal of SpotCheck is to crowd-source information about skate spots in any given area. This will allow exact pin location of skate-spots, users then can add information regarding: best time to skate, will you get kicked out, should you bring wax, etc.  The overall goal of this product is to help share info, so if you are new to an area you can check out what street spots are around without needing a tour-guide like the pros.
 
 I am using Redux in this project to help develop a better understanding of how to create state slices regarding more complicated components. 
 ## List the absolute minimum features the project requires to meet this purpose or goal:
@@ -31,8 +34,7 @@ If you finish developing the minimum viable product (MVP) with time to spare, wh
 - Deployed so that it can be demoed
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
-
-- Firebase For data storage
+- Bootstrap, Styled Components
 - Authenticaton using firebase
 - Heroku, Firebase or AWS for deployment
 

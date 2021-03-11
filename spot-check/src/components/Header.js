@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import './../index.css';
 //import { Link } from "react-router-dom";
+
 import './../index.css';
 import  Jumbotron from 'react-bootstrap/Jumbotron';
 const SpotCheckHeader = styled.h1`
-  font-size: 24px;
+  font-size: 100px;
   text-align: center;
-  color: blue
+  color: slateGray;
+  
   
 `
 // const HeaderBox = styled.div`
@@ -25,7 +28,7 @@ function Header() {
   return(
     <>
       <Jumbotron fluid>
-        <SpotCheckHeader>Spot Check</SpotCheckHeader>
+        <SpotCheckHeader className="header">Spot Check</SpotCheckHeader>
         {/* <h1>Spot Check</h1> */}
         {/* <Link to='/'>Home</Link> */}
 
