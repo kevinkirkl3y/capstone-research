@@ -80,6 +80,8 @@ Thursday 3/11/21
 
 8:00 AM Adding to Capstone Discord Channel. 
 9:00 AM Trying to get screen capture video of SpotCheck Loading Properly.
-10:00 AM Preparing for presentation.  
+10:00 AM Preparing for presentation. 
+
+
 
 

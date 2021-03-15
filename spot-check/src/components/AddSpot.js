@@ -1,9 +1,22 @@
-import React, { useState, useEffect, isLoaded} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFirestore } from 'react-redux-firebase';
 import { useDispatch} from 'react-redux';
 import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import * as c from './../actions/ActionTypes';
+import Card from 'react-bootstrap/Card';
+import './../index.css';
+import styled from 'styled-components';
+
+const MapBox = styled.div`
+width: flex;
+border: 10px solid #717082;
+marginLeft: 50%;
+marginRight: 50%;
+display: flex;
+justifyContent: center;
+alignItems: center;
+`;
 
 
 
@@ -12,30 +25,32 @@ function AddSpot(props) {
   const firestore = useFirestore();
   const [currentPosition, setCurrentPosition] = useState({});
   
-  function defaultCenter(){
+  // function defaultCenter(location){
     
-    if (currentPosition.length === 0) {
-      setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
-      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-      return { lat: 45.5051, lng: -122.6750 };
-    } else {
-      dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-      return currentPosition;
-    }
-  }
+  //   if (location === undefined) {
+  //     setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
+  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+  //     return  currentPosition;
+  //   } else {
+  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+  //     return currentPosition;
+  //   }
+  // }
   const returnHome= () => {
     props.returnHome();
+    dispatch({type: c.ADD_COORDINATES, location: currentPosition});
+    return currentPosition;
     
   }
   //const defaultPosition = setCurrentPosition(currentPosition);
   
   const mapStyles = {
     height: '50vh',
-    width: "50%"
+    width: "100%"
   }
   
   const success = position => {
-    const currentPosition = {
+    let currentPosition = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     }
@@ -72,18 +87,20 @@ function AddSpot(props) {
   
   
   
-  
-
  
     return(
       <>
+      <Card 
+      className="addSpotCard">
+        <MapBox>
         <LoadScript
         googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
           <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={13}
-          center = {defaultCenter()}>
-            {console.log(defaultCenter())}
+          center = {currentPosition}
+          >
+          
           {   
             currentPosition.lat ? 
             <Marker
@@ -94,6 +111,7 @@ function AddSpot(props) {
           }
           </GoogleMap>
         </ LoadScript>
+        </MapBox>
         
         <form onSubmit={addSpotToFirestore}>
           <label htmlFor='name'>Name:</label><br/>
@@ -105,6 +123,7 @@ function AddSpot(props) {
           <button type='submit'>Submit</button>
         </form>
         <button onClick={returnHome}>Back to spot map</button>
+        </Card>
       </>
     )
   

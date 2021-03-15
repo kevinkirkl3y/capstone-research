@@ -4,6 +4,7 @@ import { useSelector} from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
+import './../index.css';
 
 const MapBox = styled.div`
 width: flex;
@@ -13,6 +14,7 @@ marginRight: 50%;
 display: flex;
 justifyContent: center;
 alignItems: center;
+opacity: .95;
 `;
 
 
@@ -40,12 +42,12 @@ const SpotMap = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
   })
-  const [ setSelected ] = useState({});
+
   
   
-  const onSelect = spot => {
-    setSelected(spot);
-  }
+  // const onSelect = spot => {
+  //   setSelected(spot);
+  // }
   const spots = useSelector(state => state.firestore.ordered.spots)
   
   if(isLoaded(spots)) {
@@ -74,15 +76,19 @@ const SpotMap = () => {
         </MapBox>
         
           {spots.map((spot) => {
-            return <Card key={spot.id}>
-                  <Card.Body>
-                    <Card.Title>{spot.name}</Card.Title>
-                    <Card.Text>
-                      Features: {spot.features}<br/>
-                      Bust Level: {spot.bustLevel}<br/>
-                    </Card.Text>
-                  </Card.Body>
-              </Card>
+            return (
+              <Card key={spot.id}
+                    className="spotCard" >
+                    <Card.Body>
+                      <Card.Title>{spot.name}</Card.Title>
+                      <Card.Text>
+                        Features: {spot.features}<br/>
+                        Bust Level: {spot.bustLevel}<br/>
+                      </Card.Text>
+                    </Card.Body>
+                </Card>
+
+            )
           })}
         
       </>

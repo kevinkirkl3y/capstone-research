@@ -18,5 +18,21 @@ code {
 .header {
   font-family: 'Permanent Marker', cursive;
 }
+.addSpotCard {
+opacity: .9;
+}
+.addSpotMap {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.spotCard {
+  background-color: slategray;
+  opacity: .9;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-auto-rows: auto;
+  
+  
+}
 
 

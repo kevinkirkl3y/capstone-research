@@ -39,6 +39,9 @@ class SpotControl extends React.Component {
     const{ dispatch } = this.props;
     const action = a.toggleForm();
     dispatch(action);
+    const action2 = a.addCoordinates();
+    dispatch(action2);
+    
   }
   handleSelect = () => {
     
@@ -47,6 +50,8 @@ class SpotControl extends React.Component {
     const {dispatch} =this.props;
     const action = a.toggleForm();
     dispatch(action);
+    const action2 = a.addCoordinates();
+    dispatch(action2);
   }
   
   
