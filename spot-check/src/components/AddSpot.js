@@ -7,6 +7,7 @@ import * as c from './../actions/ActionTypes';
 import Card from 'react-bootstrap/Card';
 import './../index.css';
 import styled from 'styled-components';
+import { Button } from 'react-bootstrap';
 
 const MapBox = styled.div`
 width: flex;
@@ -25,16 +26,10 @@ function AddSpot(props) {
   const firestore = useFirestore();
   const [currentPosition, setCurrentPosition] = useState({});
   
-  // function defaultCenter(location){
-    
-  //   if (location === undefined) {
-  //     setCurrentPosition({ lat: 45.5051, lng: -122.6750 });
-  //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
-  //     return  currentPosition;
-  //   } else {
+  // function defaultCenter(){
   //     dispatch({type: c.ADD_COORDINATES, location: currentPosition});
   //     return currentPosition;
-  //   }
+
   // }
   const returnHome= () => {
     props.returnHome();
@@ -42,7 +37,7 @@ function AddSpot(props) {
     return currentPosition;
     
   }
-  //const defaultPosition = setCurrentPosition(currentPosition);
+  
   
   const mapStyles = {
     height: '50vh',
@@ -50,21 +45,32 @@ function AddSpot(props) {
   }
   
   const success = position => {
-    let currentPosition = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
+    let currentPosition;
+    if(!position.coords.latitude){
+      currentPosition= {
+        lat: 45.5051,
+        lng: -122.6750
+      };
+     setCurrentPosition(currentPosition);
+    }else{
+      currentPosition = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      setCurrentPosition(currentPosition);
     }
-    setCurrentPosition(currentPosition);
   }
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
-  })
+    navigator.geolocation.getCurrentPosition(success)
+    })
+  
+  
   const onMarkerDragEnd = (e) => {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
     setCurrentPosition({ lat, lng })
     dispatch({type: c.ADD_COORDINATES, location: currentPosition})
-    
+
   }
   
   
@@ -92,7 +98,9 @@ function AddSpot(props) {
       <>
       <Card 
       className="addSpotCard">
+        <Button variant='secondary' onClick={returnHome}>Back to spot map</Button>
         <MapBox>
+          {console.log(currentPosition)}
         <LoadScript
         googleMapsApiKey = {process.env.REACT_APP_MAPS_API_KEY}>
           <GoogleMap
@@ -113,17 +121,21 @@ function AddSpot(props) {
         </ LoadScript>
         </MapBox>
         
-        <form onSubmit={addSpotToFirestore}>
-          <label htmlFor='name'>Name:</label><br/>
-          <input type='text' name='name' /><br/>
-          <label htmlFor='features'>Features:</label><br/>
-          <input type='textarea' name='features' /><br/>
-          <label htmlFor='bustLevel'>Bust Level:</label><br/>
-          <input type='range' min="1" max="5" name='bustLevel'/><br/>
-          <button type='submit'>Submit</button>
-        </form>
-        <button onClick={returnHome}>Back to spot map</button>
+        <div className='addSpotForm'>
+          <form onSubmit={addSpotToFirestore}>
+            <label htmlFor='name'>Name:</label><br/>
+            <input type='text' name='name' /><br/>
+            <label htmlFor='features'>Features:</label><br/>
+            <input type='textarea' name='features' /><br/>
+            <label htmlFor='bustLevel'>Bust Level:</label><br/>
+            <input type='range' min="1" max="5" name='bustLevel'/><br/>
+            <Button variant='secondary' type='submit'>Submit</Button>
+          </form>
+          
+
+        </div>
         </Card>
+
       </>
     )
   

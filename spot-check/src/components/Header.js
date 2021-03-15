@@ -8,24 +8,12 @@ import image3 from './assets/Image3.jpeg';
 //import { Link } from "react-router-dom";
 
 import './../index.css';
-import  Jumbotron from 'react-bootstrap/Jumbotron';
 const SpotCheckHeader = styled.h1`
   font-size: 100px;
   text-align: center;
-  color: slateGray;
-  
-  
+  color: slateGray; 
 `
-// const HeaderBox = styled.div`
-// width: 100%;
-// border: 2px solid #ccc;
-// margin: 2rem auto;
-// `;
 
-// const HomeButton = styled.Link`
-//   font-size: 24px;
-//   text-align: center;
-//   color: blue
 
 function Header() {
 

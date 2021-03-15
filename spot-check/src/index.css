@@ -20,6 +20,7 @@ code {
 }
 .addSpotCard {
 opacity: .9;
+background-color: lightslategray;
 }
 .addSpotMap {
   margin-left: 25%;
@@ -33,6 +34,14 @@ opacity: .9;
   grid-auto-rows: auto;
   
   
+}
+Button {
+  font: medium;
+  opacity: .9;
+}
+.addSpotForm {
+  text-align: center;
+
 }
 
 

@@ -5,8 +5,10 @@ import { withFirestore} from 'react-redux-firebase';
 // eslint-disable-next-line
 import firebase from './../firebase';
 import AddSpot from './AddSpot';
+import Button from 'react-bootstrap/Button'
 import * as a from './../actions/index';
 import styled from 'styled-components';
+import './../index.css';
 
 
 class SpotControl extends React.Component {
@@ -43,6 +45,7 @@ class SpotControl extends React.Component {
     dispatch(action2);
     
   }
+  
   handleSelect = () => {
     
   }
@@ -74,7 +77,7 @@ class SpotControl extends React.Component {
       return(
         <>
           <this.BodyDiv>
-            <button onClick={this.handleNewSpot}>Add New Spot</button>
+            <Button variant="secondary" size="lg" block onClick={this.handleNewSpot}>Add New Spot</Button>{' '}
             <SpotMap />
             {console.log(this.props.spotFormVisible)}
           </this.BodyDiv>

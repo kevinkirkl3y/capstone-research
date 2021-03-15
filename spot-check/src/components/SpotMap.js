@@ -4,6 +4,7 @@ import { useSelector} from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
+
 import './../index.css';
 
 const MapBox = styled.div`
@@ -43,11 +44,6 @@ const SpotMap = () => {
     navigator.geolocation.getCurrentPosition(success);
   })
 
-  
-  
-  // const onSelect = spot => {
-  //   setSelected(spot);
-  // }
   const spots = useSelector(state => state.firestore.ordered.spots)
   
   if(isLoaded(spots)) {
